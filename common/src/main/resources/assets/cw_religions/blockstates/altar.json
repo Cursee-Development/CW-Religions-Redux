@@ -1,0 +1,7 @@
+{
+  "variants": {
+    "": {
+      "model": "cw_religions:block/altar"
+    }
+  }
+}

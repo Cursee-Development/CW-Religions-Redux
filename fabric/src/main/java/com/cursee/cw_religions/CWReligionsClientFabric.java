@@ -6,6 +6,6 @@ public class CWReligionsClientFabric implements ClientModInitializer {
 
     @Override
     public void onInitializeClient() {
-
+        CWReligionsClient.init();
     }
 }

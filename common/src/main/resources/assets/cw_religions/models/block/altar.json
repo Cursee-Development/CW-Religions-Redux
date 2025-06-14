@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/cube_bottom_top",
+  "textures": {
+    "bottom": "cw_religions:block/altar_bottom",
+    "side": "cw_religions:block/altar_side",
+    "top": "cw_religions:block/altar_top"
+  }
+}
