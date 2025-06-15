@@ -157,18 +157,6 @@ public class ModSecondaryWindowRunnable implements Runnable {
         GL11.glEnd();
     }
 
-    float baseHeight = 600.0f;
-    float baseWidth = 800.0f;
-
-    float heightScale = windowHeight / baseHeight;
-    float widthScale = windowWidth / baseWidth;
-
-    // You can average them if you want uniform scaling:
-    float scale = (heightScale + widthScale) / 2.0f;
-
-    // Or just pick one axis, usually height:
-    // float scale = windowHeight / baseHeight;
-
     private void renderText() {
         GL11.glDisable(GL11.GL_DEPTH_TEST);
         GL11.glDisable(GL11.GL_LIGHTING);
