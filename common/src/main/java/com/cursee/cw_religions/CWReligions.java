@@ -24,8 +24,8 @@ public class CWReligions {
             ReligionsData data = freshData(); // compute for the first time if it's absent
 
             if (addDefaults) {
-                // add some default religions
 
+                // attempt to add some default religions
                 boolean failed = false;
 
                 if (!data.addReligion(new Religion('╘', "Esquires", 0xFFFF0000, 40, UUID.randomUUID(), Set.of(UUID.randomUUID()), Set.of(UUID.randomUUID())))) failed = true;

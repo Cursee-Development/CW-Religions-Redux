@@ -1,8 +1,7 @@
 package com.cursee.cw_religions.mixin;
 
-import com.cursee.cw_religions.Constants;
-import com.cursee.cw_religions.platform.Services;
-import net.minecraft.client.Minecraft;
+import com.cursee.cw_religions.CWReligionsClient;
+import com.cursee.cw_religions.window.ModSecondaryWindowRunnable;
 import net.minecraft.client.gui.screens.TitleScreen;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
@@ -15,9 +14,12 @@ public class ForgeTitleScreenMixin {
     @Inject(at = @At("HEAD"), method = "init()V")
     private void init(CallbackInfo info) {
 
-        if (Services.PLATFORM.isDevelopmentEnvironment()) {
-            Constants.LOG.info("This line is printed by an example mod mixin from Forge!");
-            Constants.LOG.info("MC Version: {}", Minecraft.getInstance().getVersionType());
+        if (ModSecondaryWindowRunnable.instance == null && CWReligionsClient.debug) {
+            var thread = new Thread(new ModSecondaryWindowRunnable(), "Mod Window Thread");
+            thread.setDaemon(true);
+            thread.start();
+
+            ModSecondaryWindowRunnable.instance.log("Started secondary logging window for CW: Religions");
         }
     }
 }

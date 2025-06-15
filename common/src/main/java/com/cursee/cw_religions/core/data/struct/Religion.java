@@ -11,6 +11,8 @@ import java.util.UUID;
 
 public class Religion {
 
+    public static Religion NULL = new Religion(' ', "", 0xFFFFFFFF, 0, UUID.randomUUID(), Set.of(UUID.randomUUID()), Set.of(UUID.randomUUID()));
+
     private final char symbol;
     private final String name;
     private int chatColor;

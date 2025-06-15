@@ -1,6 +1,8 @@
 package com.cursee.cw_religions;
 
 import com.cursee.cw_religions.core.data.ReligionsData;
+import com.cursee.cw_religions.window.ModSecondaryWindowRunnable;
+import net.minecraft.client.Minecraft;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.TickEvent;
 import net.minecraftforge.eventbus.api.IEventBus;
@@ -31,6 +33,12 @@ public class CWReligionsClientForge {
                     Constants.LOG.info("{} {}", religion.symbol(), religion.name());
                 });
             }
+        });
+
+        MinecraftForge.EVENT_BUS.addListener((Consumer<TickEvent.ClientTickEvent>) event -> {
+            if (event.phase == TickEvent.Phase.START) return;
+            if (Minecraft.getInstance().isRunning()) return;
+            ModSecondaryWindowRunnable.shutdown();
         });
     }
 }
