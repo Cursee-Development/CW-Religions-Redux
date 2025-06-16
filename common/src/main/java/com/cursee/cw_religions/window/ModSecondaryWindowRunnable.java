@@ -66,8 +66,8 @@ public class ModSecondaryWindowRunnable implements Runnable {
         GL11.glClearColor(0f, 0f, 0f, 1f);
         GL11.glEnable(GL11.GL_DEPTH_TEST);
 
-        // Main loop
-        while (!shouldExit && !GLFW.glfwWindowShouldClose(window)) {
+        // GLFW.glfwInit() -> "Additional calls to this function after successful initialization but before termination will return TRUE immediately."
+        while (GLFW.glfwInit() && !shouldExit && !GLFW.glfwWindowShouldClose(window)) {
             // updateLog();
             render();
             GLFW.glfwSwapBuffers(window);
