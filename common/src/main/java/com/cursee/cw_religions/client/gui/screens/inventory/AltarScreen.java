@@ -1,16 +1,13 @@
 package com.cursee.cw_religions.client.gui.screens.inventory;
 
 import com.cursee.cw_religions.CWReligions;
-import com.cursee.cw_religions.client.gui.component.IWidget;
 import com.cursee.cw_religions.client.gui.component.Widget;
 import com.cursee.cw_religions.core.tag.PlayerTag;
 import com.cursee.cw_religions.core.world.inventory.AltarMenu;
+import com.cursee.cw_religions.platform.Services;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.Font;
 import net.minecraft.client.gui.GuiGraphics;
-import net.minecraft.client.gui.components.events.GuiEventListener;
-import net.minecraft.client.gui.narration.NarratableEntry;
-import net.minecraft.client.gui.narration.NarrationElementOutput;
 import net.minecraft.client.gui.screens.inventory.AbstractContainerScreen;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
@@ -59,8 +56,9 @@ public class AltarScreen extends AbstractContainerScreen<AltarMenu> {
 
         @Override
         public boolean mouseClicked(double mouseX, double mouseY, int button) {
-            boolean withinBounds = withinBounds((int) mouseX, screenReference.imageLowerX + 8, screenReference.imageLowerX + 107) && withinBounds((int) mouseY, screenReference.imageLowerY + 116, screenReference.imageLowerY + 135);
-            if (withinBounds) {
+            boolean clickedButton = withinBounds((int) mouseX, screenReference.imageLowerX + 8, screenReference.imageLowerX + 107) && withinBounds((int) mouseY, screenReference.imageLowerY + 116, screenReference.imageLowerY + 135);
+            if (clickedButton) {
+                Services.PLATFORM.requestDataSyncPacket();
                 Minecraft.getInstance().setScreen(new AltarViewReligionsSubScreen(screenReference, Component.literal("View Religions")));
             }
             return super.mouseClicked(mouseX, mouseY, button);

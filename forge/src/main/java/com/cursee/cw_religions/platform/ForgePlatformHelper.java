@@ -1,9 +1,11 @@
 package com.cursee.cw_religions.platform;
 
 import com.cursee.cw_religions.core.network.packet.DataSyncS2CPacketForge;
+import com.cursee.cw_religions.core.network.packet.RequestDataSyncC2SPacketForge;
 import com.cursee.cw_religions.platform.services.IPlatformHelper;
 import net.minecraft.client.gui.screens.MenuScreens;
 import net.minecraft.client.gui.screens.inventory.AbstractContainerScreen;
+import net.minecraft.client.player.LocalPlayer;
 import net.minecraft.core.BlockPos;
 import net.minecraft.network.chat.Component;
 import net.minecraft.server.level.ServerPlayer;
@@ -79,5 +81,10 @@ public class ForgePlatformHelper implements IPlatformHelper {
     @Override
     public void sendDataSyncPacket(ServerPlayer player) {
         DataSyncS2CPacketForge.createAndSend(player);
+    }
+
+    @Override
+    public void requestDataSyncPacket() {
+        RequestDataSyncC2SPacketForge.createAndSend();
     }
 }

@@ -23,6 +23,7 @@ public record DataSyncS2CPacketForge(ReligionsData religionsData) {
     }
 
     public static void handle(DataSyncS2CPacketForge packet, Supplier<NetworkEvent.Context> contextSupplier) {
+        System.out.println("client received data sync packet");
         contextSupplier.get().enqueueWork(() ->
                 DistExecutor.unsafeRunWhenOn(Dist.CLIENT, () -> () ->
                         DataSyncClientHandlerForge.registerS2CPacketHandler(packet, contextSupplier))
@@ -31,6 +32,7 @@ public record DataSyncS2CPacketForge(ReligionsData religionsData) {
     }
 
     public static void createAndSend(ServerPlayer player) {
+        System.out.println("server sent data sync packet");
         CWReligionsNetworkForge.sendToPlayer(new DataSyncS2CPacketForge(CWReligions.freshData()), player);
     }
 }

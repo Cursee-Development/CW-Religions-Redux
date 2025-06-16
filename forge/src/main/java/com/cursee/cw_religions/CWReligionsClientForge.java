@@ -22,6 +22,7 @@ public class CWReligionsClientForge {
 
     public void init(final IEventBus modEventBus) {
         modEventBus.addListener((Consumer<FMLClientSetupEvent>) event -> event.enqueueWork(CWReligionsClient::init));
+
         MinecraftForge.EVENT_BUS.addListener((Consumer<TickEvent.ClientTickEvent>) event -> {
             if (event.phase != TickEvent.Phase.START) return;
 

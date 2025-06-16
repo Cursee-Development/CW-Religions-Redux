@@ -1,6 +1,7 @@
 package com.cursee.cw_religions.platform.services;
 
 import net.minecraft.client.gui.screens.inventory.AbstractContainerScreen;
+import net.minecraft.client.player.LocalPlayer;
 import net.minecraft.core.BlockPos;
 import net.minecraft.network.chat.Component;
 import net.minecraft.server.level.ServerPlayer;
@@ -72,6 +73,8 @@ public interface IPlatformHelper {
     <M extends AbstractContainerMenu, S extends AbstractContainerScreen<M>> void registerScreen(MenuType<M> menuType, TriFunction<M, Inventory, Component, S> screenConstructor);
 
     void sendDataSyncPacket(ServerPlayer player);
+
+    void requestDataSyncPacket();
 
     @FunctionalInterface
     public static interface TriFunction<I, J, K, R> {

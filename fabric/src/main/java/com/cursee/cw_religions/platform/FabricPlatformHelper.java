@@ -7,6 +7,7 @@ import net.fabricmc.fabric.api.object.builder.v1.block.entity.FabricBlockEntityT
 import net.fabricmc.loader.api.FabricLoader;
 import net.minecraft.client.gui.screens.MenuScreens;
 import net.minecraft.client.gui.screens.inventory.AbstractContainerScreen;
+import net.minecraft.client.player.LocalPlayer;
 import net.minecraft.core.BlockPos;
 import net.minecraft.network.chat.Component;
 import net.minecraft.server.level.ServerPlayer;
@@ -76,6 +77,11 @@ public class FabricPlatformHelper implements IPlatformHelper {
 
     @Override
     public void sendDataSyncPacket(ServerPlayer player) {
+
+    }
+
+    @Override
+    public void requestDataSyncPacket() {
 
     }
 }
