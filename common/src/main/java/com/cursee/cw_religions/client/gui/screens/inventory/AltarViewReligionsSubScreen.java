@@ -58,7 +58,6 @@ public class AltarViewReligionsSubScreen extends AbstractSubScreen {
         guiGraphics.drawCenteredString(font, "<", reference.imageLowerX + 24, reference.imageLowerY + 129, 0xFFFFFFFF);
 
         if (withinBounds(mouseX, reference.imageLowerX + 5, reference.imageLowerX + 44) && withinBounds(mouseY, reference.imageLowerY + 126, reference.imageLowerY + 138)) {
-            // System.out.println(true);
             guiGraphics.fill(reference.imageLowerX + 5, reference.imageLowerY + 126, reference.imageLowerX + 44, reference.imageLowerY + 138, 0x55DDDDFF);
         }
     }

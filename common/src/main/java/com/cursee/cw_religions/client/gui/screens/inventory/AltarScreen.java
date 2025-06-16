@@ -60,7 +60,6 @@ public class AltarScreen extends AbstractContainerScreen<AltarMenu> {
         @Override
         public boolean mouseClicked(double mouseX, double mouseY, int button) {
             boolean withinBounds = withinBounds((int) mouseX, screenReference.imageLowerX + 8, screenReference.imageLowerX + 107) && withinBounds((int) mouseY, screenReference.imageLowerY + 116, screenReference.imageLowerY + 135);
-            System.out.println(withinBounds);
             if (withinBounds) {
                 Minecraft.getInstance().setScreen(new AltarViewReligionsSubScreen(screenReference, Component.literal("View Religions")));
             }
@@ -137,7 +136,6 @@ public class AltarScreen extends AbstractContainerScreen<AltarMenu> {
         // guiGraphics.drawString(font, String.valueOf(withinBounds(mouseX, i + 8, i + 107) && withinBounds(mouseY, j + 116, j + 135)), 0, 40, 0xFFFFFFFF);
 
         if (withinBounds(mouseX, imageLowerX + 8, imageLowerX + 107) && withinBounds(mouseY, imageLowerY + 116, imageLowerY + 135)) {
-            // System.out.println(true);
             guiGraphics.fill(imageLowerX + 8, imageLowerY + 116, imageLowerX + 107, imageLowerY + 135, 0x55DDDDFF);
         }
     }

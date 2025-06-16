@@ -16,7 +16,6 @@ public class AbstractSubScreen extends Screen {
 
     @Override
     public void onClose() {
-        System.out.println("should close screen");
         this.minecraft.setScreen(this.lastScreen);
     }
 
